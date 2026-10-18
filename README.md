@@ -23,7 +23,7 @@ A Node.js bot that forwards messages from a selected WhatsApp group to a Discord
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/wp_dc_bot.git
+   git clone https://github.com/tafer0o/wp_dc_bot.git
    ```
 
 2. Open the project folder:
