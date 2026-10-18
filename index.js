@@ -44,27 +44,28 @@ function addDashboardMessage(message) {
 
 // ================= WHATSAPP CLIENT =================
 
+
 const client = new Client({
     authStrategy: new LocalAuth({
         dataPath: '.wwebjs_auth',
     }),
-   puppeteer: {
-    headless: true,
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--disable-extensions',
-        '--disable-background-networking',
-        '--disable-default-apps',
-        '--no-zygote',
-        '--renderer-process-limit=1',
-    ],
-},
+    puppeteer: {
+        headless: true,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--disable-extensions',
+            '--disable-background-networking',
+            '--disable-default-apps',
+            '--no-zygote',
+            '--renderer-process-limit=1',
+        ],
     },
 });
+
 
 client.on('qr', (qr) => {
     whatsappStatus = 'Waiting for QR scan';
