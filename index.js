@@ -4,6 +4,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const axios = require('axios');
 const FormData = require('form-data');
+const http = require('http');
 
 
 const CONFIG = {
@@ -324,4 +325,12 @@ function sleep(ms) {
 
 // ========== Start ==========
 console.log('🔌 Starting WhatsApp client...');
+const PORT = process.env.PORT || 10000;
+
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('WhatsApp to Discord bot is running!');
+}).listen(PORT, '0.0.0.0', () => {
+    console.log(`🌐 HTTP server listening on port ${PORT}`);
+});
 client.initialize();
